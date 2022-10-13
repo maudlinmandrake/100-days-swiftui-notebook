@@ -15,27 +15,26 @@ enum squareRootError: Error {
     case outOfBounds, noRoot
 }
 
-// validation
-func checkNum (_ number: Int) throws -> String {
+// check if number has a square root
+func squareRoot(_ number: Int) throws -> Int {
+    
     if number < 1 || number > 10000 {
         throw squareRootError.outOfBounds
     }
-    return "Shut up errors"
-}
-
-// basic function for finding square root; it ain't pretty
-func squareRoot(number: Int) {
+    
     for i in 1...100 {
         if i * i == number {
-            print("The square root of \(number) is \(i)")
-        } else {
-            print("There is no root")
-            break
+            return i
         }
     }
+    
+    throw squareRootError.noRoot
+    
 }
 
-squareRoot(number: 30)
-
-// TODO: Finish validation function
-// TODO: implement do/try/catch
+do {
+    let result = try squareRoot(36)
+    print(result)
+} catch {
+    print("There was an error")
+}

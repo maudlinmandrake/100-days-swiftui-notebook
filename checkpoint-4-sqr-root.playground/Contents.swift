@@ -33,7 +33,7 @@ func squareRoot(_ number: Int) throws -> Int {
 }
 
 do {
-    let result = try squareRoot(36)
+    let result = try squareRoot(30)
     print(result)
 } catch {
     print("There was an error")
